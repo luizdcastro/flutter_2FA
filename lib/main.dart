@@ -30,7 +30,7 @@ class HomePageState extends State<HomePage> {
       'Content-type': 'application/json',
       'Accept': 'application/json',
       HttpHeaders.authorizationHeader:
-          'Basic bHVpemRjYXN0cm86U3VwcG9ydEA5MTI1MTA='
+          'Basic ###################################'
     };
 
     final response =
