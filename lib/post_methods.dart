@@ -25,5 +25,10 @@ Future<http.Response> requestMethod() async {
       await http.post(urlSendPin, body: bodySendPin, headers: headers);
   final responseJson = json.decode(response.body);
   print(responseJson);
+  if (responseJson['smsStatus'] == 'MESSAGE_SENT') {
+    print('Page with code');
+  } else {
+    print('Request Error, please try again');
+  }
   return response;
 }
