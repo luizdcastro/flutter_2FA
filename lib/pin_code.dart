@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 import 'post_methods.dart';
-import 'pin_code.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: HomePage(),
-    ),
-  );
-}
-
-class HomePage extends StatefulWidget {
+class PinCode extends StatefulWidget {
   @override
-  HomePageState createState() => HomePageState();
+  PinCodeState createState() => PinCodeState();
 }
 
-class HomePageState extends State<HomePage> {
+class PinCodeState extends State<PinCode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,28 +16,19 @@ class HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextField(
-              decoration: InputDecoration(labelText: "Enter your number"),
+              decoration: InputDecoration(labelText: "Enter PIN code"),
               keyboardType: TextInputType.number,
               onChanged: (String textInput) {
                 setState(() {
-                  mobileNumber = textInput;
+                  pinCode = textInput;
                 });
               },
             ),
             new RaisedButton(
               child: Text('Send PIN'),
               onPressed: () {
-                requestMethod();
-                setState(() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return PinCode();
-                      },
-                    ),
-                  );
-                });
+                print(pinCode);
+                pinValidation();
               },
             ),
           ],
